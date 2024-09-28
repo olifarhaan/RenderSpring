@@ -1,0 +1,33 @@
+services:
+  postgres:
+    container_name: postgres-sql
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=dockerize-spring
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - dockerize-spring-network
+    restart: always
+  app:
+    container_name: dockerize-spring-app
+    image: dockerize-spring
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-sql:5432/dockerize-spring
+    networks:
+      - dockerize-spring-network
+
+volumes:
+  postgres:
+
+networks:
+  dockerize-spring-network:
+    driver: bridge

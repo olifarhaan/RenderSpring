@@ -25,15 +25,4 @@ public class RenderSpringApplication {
 			repository.save(employee);
 		};
 	}
-
-
 }
-
-/*
- * Connect a container with another container
- * Lets say we have a postgres sql container running and we want to connect our spring boot application container to it.
- * We can do this by using the concept of networks in docker.
- * Both containers need to be connected to the same docker network and then we can connect our spring boot application container to the postgres sql container.
- * 
- * 
- */

@@ -6,7 +6,7 @@ COPY . .
 
 RUN ./gradlew clean build --no-daemon
 
-COPY build/libs/RenderSpring-0.0.1.jar RenderSpring.jar
+COPY ./build/libs/RenderSpring-0.0.1.jar ./RenderSpring.jar
 
 ENV PORT=8080 
 

@@ -7,6 +7,15 @@ plugins {
 group = 'com.olifarhaan'
 version = '0.0.1'
 
+bootJar {
+    archiveFileName = "${project.name}-${project.version}-boot.jar"
+}
+
+jar {
+    archiveFileName = "${project.name}-${project.version}.jar"
+}
+
+
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
